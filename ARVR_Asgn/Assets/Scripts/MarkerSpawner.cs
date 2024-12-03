@@ -31,6 +31,5 @@ public class MarkerSpawner : MonoBehaviour
             GameObject furMarkobj = Instantiate(furnitureMarker, placement.transform.position, placement.transform.rotation);
             markerCount++;
         }
-        else return;
     }
 }
