@@ -9,7 +9,6 @@ public class MarkerSpawner : MonoBehaviour
     private PlacementMarker placement;
     public List<GameObject> posMarkerList = new List<GameObject>();
     int markerCount = 0;
-    // Start is called before the first frame update
     void Start()
     {
         placement = FindObjectOfType<PlacementMarker>();
@@ -24,12 +23,19 @@ public class MarkerSpawner : MonoBehaviour
         }
     }
 
+    GameObject furMarkobj;
+
     public void SpawnFurMarker()
     {
-        if (markerCount < 1)
+        if (furMarkobj == null)
         {
-            GameObject furMarkobj = Instantiate(furnitureMarker, placement.transform.position, placement.transform.rotation);
+            furMarkobj = Instantiate(furnitureMarker, placement.transform.position, placement.transform.rotation);
             markerCount++;
+        }
+        else
+        {
+            furMarkobj.transform.position = placement.transform.position;
+            furMarkobj.transform.rotation = placement.transform.rotation;
         }
     }
 }

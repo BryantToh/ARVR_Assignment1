@@ -20,7 +20,6 @@ public class PlacementMarker : MonoBehaviour
     {
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         rayManager.Raycast(new Vector2(Screen.width / 2.0f, Screen.height / 2.0f), hits, TrackableType.Planes);
-
         if (hits.Count > 0)
         {
             transform.position = hits[0].pose.position;

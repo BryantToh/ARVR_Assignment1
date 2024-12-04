@@ -10,7 +10,7 @@ public class Dropdown : MonoBehaviour
         switch (index)
         {
             case 0:
-                Debug.Log("Cupboard");
+                
                 break;
             case 1:
                 Debug.Log("Sofa");
