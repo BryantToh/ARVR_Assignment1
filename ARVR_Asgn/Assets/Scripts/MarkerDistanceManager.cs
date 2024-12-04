@@ -30,12 +30,14 @@ public class MarkerDistanceManager : MonoBehaviour
                 float distanceInInches = distanceBetMark * 39.37f;
                 int roundedDistance = Mathf.RoundToInt(distanceInInches);
 
+                // Update MarkerDistSO object
                 markerSO.SetDistance(i, roundedDistance);
-                Debug.Log(markerSO.markerDist1 + " " + markerSO.markerDist2 + " " + markerSO.markerDist3);
                 distancesText += $"Marker {i} to Marker {i + 1}: {roundedDistance} inches\n";
             }
 
+            // Display updated distances in the text field
             distText.text = distancesText;
         }
     }
+
 }

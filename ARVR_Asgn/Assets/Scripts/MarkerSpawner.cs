@@ -18,8 +18,20 @@ public class MarkerSpawner : MonoBehaviour
     {
         if (posMarkerList.Count < 4)
         {
+            // Add a new marker if the list is not full
             GameObject obj = Instantiate(objectToSpawn, placement.transform.position, placement.transform.rotation);
             posMarkerList.Add(obj);
+        }
+        else
+        {
+            // Move the oldest marker to the new position if the list is full
+            GameObject oldestMarker = posMarkerList[0];
+            oldestMarker.transform.position = placement.transform.position;
+            oldestMarker.transform.rotation = placement.transform.rotation;
+
+            // Move the marker to the end of the list to keep track of recent updates
+            posMarkerList.RemoveAt(0);
+            posMarkerList.Add(oldestMarker);
         }
     }
 
